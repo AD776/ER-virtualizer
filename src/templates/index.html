@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Entity Relationship Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Entity Relationship Visualizer</h1>
+      <p>Enter text on the left to discover entities and their relationships from Wikidata.</p>
+    </header>
+    <main class="app-main">
+      <section class="input-panel">
+        <form id="analysis-form">
+          <label for="input-text">Free-form text</label>
+          <textarea id="input-text" name="text" placeholder="Paste or type text describing people, places, or things..."></textarea>
+          <div class="form-actions">
+            <button type="submit" id="analyze-button">Analyze</button>
+            <span id="status-message" role="status"></span>
+          </div>
+        </form>
+      </section>
+      <section class="visual-panel">
+        <div class="visual-header">
+          <h2>Knowledge Graph</h2>
+          <p>Nodes are labeled with their entity type; edges represent directed relationships.</p>
+        </div>
+        <div id="graph-container">
+          <div id="graph" aria-label="Knowledge graph visualization" role="presentation"></div>
+        </div>
+        <div id="graph-empty" hidden>
+          <p>No relationships found yet. Submit text to explore entities.</p>
+        </div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>

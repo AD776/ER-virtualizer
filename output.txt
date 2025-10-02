@@ -1,0 +1,2 @@
+{'subject': 'New York Yankees', 'subject_qid': 'Q213417', 'predicate': 'league or competition', 'predicate_pid': 'P118', 'object': 'Major League Baseball', 'object_qid': 'Q1163715'}
+{'subject': 'New York Mets', 'subject_qid': 'Q692417', 'predicate': 'league or competition', 'predicate_pid': 'P118', 'object': 'Major League Baseball', 'object_qid': 'Q1163715'}
