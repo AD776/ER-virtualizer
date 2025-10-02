@@ -18,7 +18,6 @@
           <textarea id="input-text" name="text" placeholder="Paste or type text describing people, places, or things..."></textarea>
           <div class="form-actions">
             <button type="submit" id="analyze-button">Analyze</button>
-            <button type="button" id="export-button" disabled>Export</button>
             <span id="status-message" role="status"></span>
           </div>
         </form>
@@ -30,6 +29,9 @@
         </div>
         <div id="graph-container">
           <div id="graph" aria-label="Knowledge graph visualization" role="presentation"></div>
+        </div>
+        <div class="graph-actions">
+          <button type="button" id="export-button" disabled>Export</button>
         </div>
         <div id="graph-empty" hidden>
           <p>No relationships found yet. Submit text to explore entities.</p>
