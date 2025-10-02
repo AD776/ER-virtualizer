@@ -161,6 +161,11 @@ body {
   min-height: 1.25rem;
 }
 
+.graph-footer #graph-empty[hidden] {
+  display: block !important;
+  visibility: hidden;
+}
+
 #export-button {
   padding: 0.6rem 1.6rem;
   border-radius: 999px;
