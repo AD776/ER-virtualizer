@@ -145,7 +145,39 @@ body {
 #graph-empty {
   text-align: center;
   color: var(--text-muted);
-  margin-top: 2rem;
+}
+
+.graph-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.graph-footer #graph-empty {
+  flex: 1;
+  text-align: left;
+}
+
+#export-button {
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: #0f172a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+#export-button:hover:enabled {
+  transform: translateY(-1px);
+}
+
+#export-button[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
 }
 
 @media (max-width: 960px) {
