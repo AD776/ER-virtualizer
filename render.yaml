@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: entity-relationship-visualizer
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python -m spacy download en_core_web_sm
+    startCommand: gunicorn src.app:app
+    runtime: python
+    envVars:
+      - key: FLASK_ENV
+        value: production
