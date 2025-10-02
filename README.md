@@ -41,6 +41,7 @@ python -m src.cli --input input.txt --output output.txt
 1. Paste or type descriptive text about people, places, organizations, works of art, etc. (multi-sentence paragraphs work best).
 2. Click **Analyze**. The backend extracts named entities, finds related Wikidata entries, and fetches relationships.
 3. The knowledge graph panel renders each entity as a draggable node. Hover to read labels, drag to rearrange, and inspect edge tooltips for predicate names.
+4. Use the **Export** button to download the current graph as a PNG snapshot.
 
 ### Input guidance
 
