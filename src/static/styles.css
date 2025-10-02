@@ -91,7 +91,8 @@ body {
   margin-top: 1rem;
 }
 
-#analyze-button {
+#analyze-button,
+#export-button {
   padding: 0.6rem 1.6rem;
   border-radius: 999px;
   border: none;
@@ -102,8 +103,15 @@ body {
   transition: transform 0.15s ease;
 }
 
-#analyze-button:hover {
+#analyze-button:hover,
+#export-button:hover:enabled {
   transform: translateY(-1px);
+}
+
+#export-button[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
 }
 
 #status-message {

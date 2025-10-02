@@ -3,6 +3,7 @@
   const textarea = document.getElementById("input-text");
   const statusEl = document.getElementById("status-message");
   const button = document.getElementById("analyze-button");
+  const exportButton = document.getElementById("export-button");
   const graphEl = document.getElementById("graph");
   const emptyState = document.getElementById("graph-empty");
 
@@ -47,6 +48,7 @@
     if (graphEl) {
       graphEl.innerHTML = "";
     }
+    setExportAvailability(false);
   }
 
   function buildElements(triplets) {
@@ -126,6 +128,7 @@
 
     if (!latestTriplets.length) {
       emptyState.hidden = false;
+      setExportAvailability(false);
       return;
     }
 
@@ -194,6 +197,33 @@
     cy.layout(layout).run();
     cy.center();
     cy.fit(null, 40);
+    setExportAvailability(true);
+  }
+
+  function setExportAvailability(enabled) {
+    if (exportButton) {
+      exportButton.disabled = !enabled;
+    }
+  }
+
+  function exportGraph() {
+    if (!cy) {
+      return;
+    }
+
+    try {
+      const background = getCssColor("--bg", "#0f172a");
+      const dataUrl = cy.png({ full: true, scale: 2, bg: background || "#0f172a" });
+      const link = document.createElement("a");
+      const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+      link.href = dataUrl;
+      link.download = `knowledge-graph-${timestamp}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (err) {
+      console.error("Failed to export graph", err);
+    }
   }
 
   async function handleSubmit(event) {
@@ -239,5 +269,8 @@
   }
 
   form.addEventListener("submit", handleSubmit);
+  if (exportButton) {
+    exportButton.addEventListener("click", exportGraph);
+  }
   renderGraph([]);
 })();
