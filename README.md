@@ -2,6 +2,8 @@
 
 Interactive web app that extracts entities and relationships from free-form text using Wikidata and presents the results as an explorable knowledge graph. The right panel renders the graph with Cytoscape.js, allowing you to drag nodes to refine layout.
 
+- Live demo: <https://entity-relationship-visualizer.onrender.com>
+
 ## Requirements
 
 - Python 3.10+
@@ -33,24 +35,6 @@ You can also generate triplets from a text file via the CLI:
 ```bash
 python -m src.cli --input input.txt --output output.txt
 ```
-
-## Deploying for free on Render
-
-Render's free tier can host the Flask API so the front end stays interactive without managing servers yourself.
-
-1. Push this repository to GitHub.
-2. Sign in to [Render](https://render.com) and choose **New + → Blueprint**.
-3. Point it at your GitHub repo; Render automatically detects `render.yaml`.
-4. Accept the defaults (service name, free plan) and click **Create Blueprint**.
-
-Render runs the build and start commands defined in `render.yaml`:
-
-```yaml
-buildCommand: pip install -r requirements.txt && python -m spacy download en_core_web_sm
-startCommand: gunicorn src.app:app
-```
-
-Once the deploy is live, Render exposes a public URL (e.g. `https://your-app.onrender.com`). Open that address in a browser to use the visualizer, or configure static hosts (GitHub Pages, Netlify, etc.) to call the Render API.
 
 ## Using the visualizer
 
